@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Películas - AntCine</title>
+    <style>
+        :root {
+            --color-primary: #e50914;
+            --color-secondary: #f5c518;
+            --color-dark: #141414;
+            --color-light: #f8f8f8;
+            --header-height: 80px;
+            --footer-height: 100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: var(--color-dark);
+            display: grid;
+            grid-template-areas: 
+                "Header"
+                "Main"
+                "Footer";
+            grid-template-rows: var(--header-height) 1fr var(--footer-height);
+            color: var(--color-light);
+        }
+
+        header {
+            grid-area: Header;
+            background-color: var(--color-dark);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 100px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        nav a { 
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* MAIN */
+        main {
+            grid-area: Main;
+            background-color: var(--color-dark);
+            padding: 2rem 5%;
+            overflow-y: auto;
+        }
+
+        .contenedor-peliculas {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pelicula {
+            background-color: rgba(20, 20, 20, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pelicula:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.7);
+        }
+
+        .pelicula img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        .pelicula h2 {
+            color: var(--color-secondary);
+            padding: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .pelicula p {
+            color: var(--color-light);
+            padding: 0 1rem 1.5rem;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        footer {
+            grid-area: Footer;
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .footer-content p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px 5%;
+                height: auto;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .contenedor-peliculas {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            :root {
+                --header-height: auto;
+                --footer-height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            .titulo-seccion {
+                font-size: 1.8rem;
+            }
+
+            .pelicula img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="./index.html"><img src="./Recursos/Logo.png" alt="CinePlus Logo"></a>
+            <h1>AntCine</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./Contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="titulo-seccion">Nuestras Películas</h1>
+        <div id="contenedor-peliculas" class="contenedor-peliculas">
+            
+        </div>
+    </main>
+      
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 CinePlus. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="https://youtu.be/dQw4w9WgXcQ?si=ap46RAfVEvvOru19">Aviso legal</a>
+                <a href="https://www.aepd.es/politica-de-privacidad-y-aviso-legal">Política de privacidad</a>
+                <a href="https://es.wikipedia.org/wiki/T%C3%A9rminos_y_condiciones_de_uso">Términos de uso</a>
+                <a href="https://www.carglass.es/contacto?utm_source=google&utm_medium=cpc&utm_campaign=Brand%20-%20Generics&utm_campaign_id=12705598052&utm_content=Brand_Generics_Contacto&utm_creative_format=text&gad_source=1&gad_campaignid=12705598052&gbraid=0AAAAAD1ZOuqJR1HUtTQDlPP3_-vhqxLrb&gclid=Cj0KCQjww-HABhCGARIsALLO6XzUVihsDSvH-TQp5N7NNmh83Ol1sr5rNegkCUMCQCSyFG4wf0dbkkgaAvihEALw_wcB&gclsrc=aw.ds">Soporte</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Pelis.js"></script>
+</body>
+</html>

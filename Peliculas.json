@@ -1,0 +1,34 @@
+{
+  "peliculas": [
+    {
+      "titulo": "Pulp Fiction",
+      "descripcion": "Una de las obras maestras de Quentin Tarantino. Con una narrativa no lineal, personajes memorables y diálogos icónicos, es un referente absoluto del cine de culto.",
+      "imagen": "./Recursos/fiction.jpg"
+    },
+    {
+      "titulo": "Platoon",
+      "descripcion": "Una mirada cruda y personal sobre la Guerra de Vietnam, dirigida por Oliver Stone. Ganadora del Oscar a Mejor Película, es considerada una de las películas bélicas más influyentes.",
+      "imagen": "./Recursos/platoon.jpg"
+    },
+    {
+      "titulo": "Donnie Darko",
+      "descripcion": "Una mezcla única de ciencia ficción, drama adolescente y surrealismo. Su compleja narrativa y simbolismo la convirtieron en una obra de culto tras su lanzamiento.",
+      "imagen": "./Recursos/darko.jpg"
+    },
+    {
+      "titulo": "Trainspotting",
+      "descripcion": "Retrato brutal y estilizado de la adicción en la Edimburgo de los 90. Con dirección de Danny Boyle y una banda sonora inolvidable, es puro cine de culto británico.",
+      "imagen": "./Recursos/trainspotting.jpg"
+    },
+    {
+      "titulo": "El Padrino",
+      "descripcion": "La obra maestra de Francis Ford Coppola, considerada una de las mejores películas de todos los tiempos. Un retrato épico y elegante del poder, la familia y el crimen.",
+      "imagen": "./Recursos/padrino.jpg"
+    },
+    {
+      "titulo": "Fight Club",
+      "descripcion": "Dirigida por David Fincher, es una crítica feroz al consumismo y la alienación moderna. Con un guion provocador y giros inolvidables, se convirtió en ícono del cine de culto.",
+      "imagen": "./Recursos/fightclub.jpg"
+    }
+  ]
+}
